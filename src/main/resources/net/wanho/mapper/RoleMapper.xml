@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间，和接口关联-->
+<mapper namespace="net.wanho.mapper.RoleMapper">
+
+
+    <resultMap id="roleMap" type="Role">
+        <id column="role_id" property="roleId"/>
+        <result column="roleName" property="roleName"/>
+        <collection property="permissionList" javaType="java.util.List" ofType="Permission" select="selectAllPermissions"
+                    column="role_id"/>
+
+    </resultMap>
+
+
+    <select id="getRolesByName" resultMap="roleMap">
+
+        SELECT
+        *
+        FROM
+        role r
+        LEFT JOIN user_role ur ON r.role_id = ur.roleId
+        LEFT JOIN `user` u  ON ur.userId=u.user_Id
+        WHERE u.username=#{username}
+
+
+    </select>
+
+    <select id="selectAllPermissions" resultType="Permission">
+        SELECT
+            *
+        FROM
+            permission p
+            LEFT JOIN role_permission rp ON p.permissionId = rp.permissionId
+        WHERE
+            rp.roleId=#{role_id}
+    </select>
+
+</mapper>
