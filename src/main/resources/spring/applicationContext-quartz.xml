@@ -20,6 +20,7 @@
         <!--</property>-->
         <!--<property name="cronExpression" value="0/3 * * * * ?"/>-->
     <!--</bean>-->
+    <!-- 任务调度 -->
     <!--<bean id="schedulerFactoryBean"-->
           <!--class="org.springframework.scheduling.quartz.SchedulerFactoryBean">-->
         <!--<property name="triggers">-->

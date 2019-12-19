@@ -34,7 +34,7 @@
           SELECT  * FROM student
           <where>
               <if test="gender!=null and !''.equals(gender)">
-                  AND gender=#{gender}
+                  and gender=#{gender}
               </if>
               <if test="address!=null and !''.equals(address)">
                   and address like concat('%',#{address},'%')

@@ -99,7 +99,7 @@ public class TestTow {
         ServletContext servletContext = request.getServletContext();
         String mimeType = servletContext.getMimeType(fileName);
         //8.获取浏览器信息,对文件名进行重新编码
-        fileName = FileUtils.filenameEncoding(fileName, request);
+
 
         //9.设置信息头
         response.setContentType(mimeType);

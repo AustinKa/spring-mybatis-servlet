@@ -41,12 +41,12 @@
             <td>${stu.age}</td>
             <td>${stu.gender}</td>
             <td>${stu.address}</td>
-            <shiro:hasPermission name="student:update">
+            <%--<shiro:hasPermission name="student:update">--%>
                 <td><a href="/student/toUpdateStu?id=${stu.id}">修改</a></td>
-            </shiro:hasPermission>
-            <shiro:hasPermission name="student:delete">
+            <%--</shiro:hasPermission>--%>
+            <%--<shiro:hasPermission name="student:delete">--%>
                 <td><a href="/student/delStu?id=${stu.id}">删除</a></td>
-            </shiro:hasPermission>
+            <%--</shiro:hasPermission>--%>
 
 
         </tr>
@@ -99,7 +99,7 @@
     }
 
     function changePage(num){
-
+        console.info(num)
         $("#pageNum").val(num);
         $("#frm").submit();
 

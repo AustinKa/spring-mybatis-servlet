@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form id="frm" action="/addStu" method="post">
+<form id="frm" action="/student/addStu" method="post">
     姓名<input type="text" name="sname" id="sname">
     年龄<input type="text" name="age" id="age">
     性别<input type="text" name="gender"  id="gender">

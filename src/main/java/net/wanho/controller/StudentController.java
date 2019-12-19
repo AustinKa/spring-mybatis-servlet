@@ -45,10 +45,13 @@ public class StudentController {
 
     @RequestMapping("getAllStus")
     public String getAllStus(@RequestParam(defaultValue = "1") Integer pageNum,String gender,String address,Map map) {
+        System.out.println(address);
+        System.out.println(gender);
         PageInfo<Student> pageInfo = studentServiceI.getAllStusPage(pageNum, gender, address);
         map.put("pageInfo", pageInfo);
         map.put("gender", gender);
         map.put("address", address);
+        System.out.println(pageInfo);
         return "student";
     }
 
@@ -72,7 +75,7 @@ public class StudentController {
     @RequestMapping("delStu")
     public String delStu(Integer id) {
         studentServiceI.delStuById(id);
-        return "redirect:/student/getAllStus";
+        return "student";
     }
 
     @RequestMapping("toUpdateStu")
@@ -91,10 +94,10 @@ public class StudentController {
 
     @RequestMapping("updateStu")
     public String updateStu(Student student) {
-
+        System.out.println(student);
         studentServiceI.updateStu(student);
 
-        return "redirect:/student/getAllStus";
+        return "student";
     }
 
 

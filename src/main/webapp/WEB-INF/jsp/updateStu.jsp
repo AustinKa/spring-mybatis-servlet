@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form id="frm" action="/updateStu" method="post">
+<form id="frm" action="/student/updateStu" method="post">
     <input type="hidden" name="id" value="${stu.id}">
     姓名<input type="text" name="sname" id="sname" value="${stu.sname}">
     年龄<input type="text" name="age" id="age" value="${stu.age}">

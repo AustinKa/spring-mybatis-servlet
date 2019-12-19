@@ -31,6 +31,7 @@ public class StudentServiceImpl implements StudentServiceI {
     public void addStu(Student student) {
 
         studentMapper.addStu(student);
+        jedisPool.getResource().del("stus");
 
     }
 
@@ -38,6 +39,7 @@ public class StudentServiceImpl implements StudentServiceI {
     public List<Student> getAllStus() {
 
         List<Student> stus = studentMapper.getAllStus();
+        jedisPool.getResource().del("stus");
         return stus;
     }
 
